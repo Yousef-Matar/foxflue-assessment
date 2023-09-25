@@ -5,5 +5,5 @@ export default defineNuxtConfig({
 	colorMode: {
 		preference: "light",
 	},
-	devtools: { enabled: true },
+	devtools: { enabled: false },
 });
