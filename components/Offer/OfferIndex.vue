@@ -3,15 +3,34 @@
 		<div class="bg-white flex flex-col gap-3">
 			<!-- Map -->
 			<div class="flex justify-center">
-				<img
-					class="max-h-full max-w-full"
-					src="../../location.png"
-					alt="Google Maps"
-				/>
-				<UButton
-					icon="i-heroicons-chevron-left"
-					class="text-blue-500 rounded-full absolute top-1/4 left-1/4"
-				/>
+				<div style="height: 50vh; width: 100vw">
+					<LMap
+						ref="map"
+						:zoom="30"
+						:options="{
+							zoomControl: false,
+							scrollWheelZoom: false,
+						}"
+						:center="[40.68034, -73.88416]"
+					>
+						<LTileLayer
+							url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+							attribution='&amp;copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
+							layer-type="base"
+							name="OpenStreetMap"
+						/>
+						<LMarker
+							:lat-lng="[40.68034, -73.88416]"
+							:name="'location'"
+						>
+							<LPopup> Pickup location. </LPopup>
+						</LMarker>
+					</LMap>
+					<UButton
+						icon="i-heroicons-chevron-left"
+						class="text-blue-500 rounded-full absolute top-[15%] left-[10%] z-[401]"
+					/>
+				</div>
 			</div>
 			<!-- Badges -->
 			<div class="flex gap-3 justify-center">
